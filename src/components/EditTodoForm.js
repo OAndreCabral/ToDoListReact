@@ -5,11 +5,13 @@ const EditTodoForm = ({ editTodo, task }) => {
     const [value, setValue] = useState(task.tarefa);
 
     const handleSubmit = (event) => {
+
         event.preventDefault();
 
-        editTodo(value, task.id);
-
-        setValue("");
+        if (value) {
+            editTodo(value, task.id);
+            setValue("");
+        }
     }
 
     return (
